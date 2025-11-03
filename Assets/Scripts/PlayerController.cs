@@ -1,39 +1,39 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+[RequireComponent(typeof(Rigidbody2D))]
+public class PlayerController2D : MonoBehaviour
 {
-    public float speed = 5f;
-    public float acceleration = 0.2f;
-    public float maxSpeed = 8f;
+    public float moveSpeed = 10f;
+    public float rotationSpeed = 200f;
+
     private Rigidbody2D rb;
+    private Vector2 moveInput;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0; // garante sem gravidade
     }
 
     void Update()
     {
-        Move();
+        // Leitura de teclas (WSAD ou setas)
+        float moveY = Input.GetAxisRaw("Vertical");   // W/S ou ↑/↓
+        float moveX = Input.GetAxisRaw("Horizontal"); // A/D ou ←/→
+
+        moveInput = new Vector2(moveX, moveY).normalized;
     }
 
-    void Move()
+    void FixedUpdate()
     {
-        float moveX = Input.GetAxis("Horizontal");
-        float moveY = Input.GetAxis("Vertical");
+        // Movimento linear
+        rb.linearVelocity = moveInput * moveSpeed;
 
-        Vector2 direction = new Vector2(moveX, moveY);
-        Vector2 newVelocity = rb.linearVelocity + direction * acceleration;
-
-        // Limita a velocidade máxima
-        newVelocity = Vector2.ClampMagnitude(newVelocity, maxSpeed);
-
-        rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, newVelocity, Time.deltaTime * 5f);
-
-        // Mantém o avião dentro da tela
-        Vector3 pos = transform.position;
-        pos.x = Mathf.Clamp(pos.x, -8f, 8f);
-        pos.y = Mathf.Clamp(pos.y, -4f, 4f);
-        transform.position = pos;
+        // Opcional: girar a nave na direção do movimento
+        if (moveInput.sqrMagnitude > 0.01f)
+        {
+            float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg - 90f;
+            rb.rotation = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
+        }
     }
 }
