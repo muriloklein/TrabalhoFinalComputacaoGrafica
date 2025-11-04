@@ -6,6 +6,9 @@ public class PlayerController2D : MonoBehaviour
     public float moveSpeed = 10f;
     public float rotationSpeed = 200f;
 
+    public Transform shootPoint;
+    public GameObject projectilePrefab;
+
     private Rigidbody2D rb;
     private Vector2 moveInput;
 
@@ -22,6 +25,12 @@ public class PlayerController2D : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal"); // A/D ou ←/→
 
         moveInput = new Vector2(moveX, moveY).normalized;
+
+        // Atirar
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation);
+        }
     }
 
     void FixedUpdate()
