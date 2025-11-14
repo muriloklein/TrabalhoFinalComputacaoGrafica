@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Background
+  - Asteroid
   layers:
   - Default
   - TransparentFX
@@ -53,6 +54,9 @@ TagManager:
     locked: 0
   - name: Enemies
     uniqueID: 1285119325
+    locked: 0
+  - name: Asteroid
+    uniqueID: 3373073965
     locked: 0
   m_RenderingLayers:
   - Default
