@@ -3,25 +3,60 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameManager Instance;
 
-    public GameObject gameOverPanel;
+    public float timeLimit = 60f;
+    public int enemiesToDestroy = 5;
 
-    private void Awake()
+    private float timer;
+    private int enemiesDestroyed = 0;
+    private bool gameEnded = false;
+
+    void Awake()
     {
-        instance = this;
-        Time.timeScale = 1f;
+        if (Instance == null)
+            Instance = this;
+        else 
+            Destroy(gameObject);
+    }
+
+    void Start()
+    {
+        timer = timeLimit;
+    }
+
+    void Update()
+    {
+        if (gameEnded) return;
+
+        timer -= Time.deltaTime;
+
+        if (timer <= 0)
+            GameOver();
+    }
+
+    public void AddEnemyDestroyed()
+    {
+        enemiesDestroyed++;
+
+        if (enemiesDestroyed >= enemiesToDestroy)
+            WinGame();
+    }
+
+    void WinGame()
+    {
+        gameEnded = true;
+        Debug.Log("YOU WIN!");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void GameOver()
     {
-        gameOverPanel.SetActive(true);
-        Time.timeScale = 0f;
+        gameEnded = true;
+        Debug.Log("GAME OVER");
+        SceneManager.LoadScene("MainMenu");
     }
 
-    public void RestartGame()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+    public float GetTimer() => timer;
+    public int GetDestroyed() => enemiesDestroyed;
 }

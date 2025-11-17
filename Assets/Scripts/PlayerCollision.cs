@@ -11,7 +11,7 @@ public class PlayerCollision : MonoBehaviour
             
             Instantiate(explosionVFX, transform.position, Quaternion.identity);
             
-            GameManager.instance.GameOver();
+            GameManager.Instance.GameOver();
             Destroy(gameObject);
         }
     }
