@@ -4,6 +4,7 @@ public class Projectile : MonoBehaviour
 {
     public float lifeTime = 3f;
     public float speed = 10f;
+    public GameObject explosionPrefab;
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class Projectile : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             GameManager.Instance.AddEnemyDestroyed();
+            SpawnExplosion();
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
@@ -29,8 +31,14 @@ public class Projectile : MonoBehaviour
         // Destruir asteroide
         if (other.CompareTag("Asteroid"))
         {
+            SpawnExplosion();
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
+    }
+
+    void SpawnExplosion()
+    {
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
     }
 }

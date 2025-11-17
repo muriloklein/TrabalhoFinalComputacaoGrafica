@@ -143,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Projectile2D
   lifeTime: 6
   speed: 10
+  explosionPrefab: {fileID: 7309821751498476324, guid: 7286b99692ba15e408a4052c3c7852e0, type: 3}
 --- !u!50 &-8451348831554070571
 Rigidbody2D:
   serializedVersion: 5
