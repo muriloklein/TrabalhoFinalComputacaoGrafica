@@ -626,7 +626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efee50cb6aed1874ca0831c30c7b0d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  explosionVFX: {fileID: 0}
+  explosionVFX: {fileID: 1046424601}
 --- !u!1001 &336014408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1457,6 +1457,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   timeLimit: 60
   enemiesToDestroy: 5
+  gameOverPanel: {fileID: 2116636034}
+  winPanel: {fileID: 0}
 --- !u!4 &1742742716
 Transform:
   m_ObjectHideFlags: 0

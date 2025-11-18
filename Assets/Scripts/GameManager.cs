@@ -5,8 +5,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    [Header("Gameplay Settings")]
     public float timeLimit = 60f;
     public int enemiesToDestroy = 5;
+
+    [Header("UI Panels")]
+    public GameObject gameOverPanel;
+    public GameObject winPanel;
 
     private float timer;
     private int enemiesDestroyed = 0;
@@ -15,9 +20,16 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         if (Instance == null)
+        {
             Instance = this;
-        else 
+        }
+        else
+        {
             Destroy(gameObject);
+            return;
+        }
+
+        Time.timeScale = 1f;
     }
 
     void Start()
@@ -47,14 +59,28 @@ public class GameManager : MonoBehaviour
     {
         gameEnded = true;
         Debug.Log("YOU WIN!");
-        SceneManager.LoadScene("MainMenu");
+
+        if (winPanel != null)
+            winPanel.SetActive(true);
+
+        Time.timeScale = 0f;
     }
 
     public void GameOver()
     {
         gameEnded = true;
         Debug.Log("GAME OVER");
-        SceneManager.LoadScene("MainMenu");
+
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(true);
+
+        Time.timeScale = 0f;
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public float GetTimer() => timer;
