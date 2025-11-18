@@ -626,7 +626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efee50cb6aed1874ca0831c30c7b0d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  explosionVFX: {fileID: 1046424601}
+  explosionVFX: {fileID: 4528382126151413453, guid: f9558af0db621d747b212afbfd32a3e5, type: 3}
 --- !u!1001 &336014408
 PrefabInstance:
   m_ObjectHideFlags: 0
