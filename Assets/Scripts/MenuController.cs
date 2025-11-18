@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
     public GameObject menuOptions;
     public GameObject introScreen;
-    public GameObject gameLevels; // <-- Adicione esta referência
+    public GameObject gameLevels;
+    public GameObject gameRanking;
+    public GameObject gameCredits;
     public AudioSource selectSound;
 
     private bool hasStarted = false;
@@ -18,7 +21,14 @@ public class MenuController : MonoBehaviour
             introScreen.SetActive(true);
 
         if (gameLevels != null)
-            gameLevels.SetActive(false); // Garante que a tela de níveis começa oculta
+            gameLevels.SetActive(false);
+
+        if (gameRanking != null)
+            gameRanking.SetActive(false);
+
+        if (gameCredits != null)
+            gameCredits.SetActive(false);
+
     }
 
     void Update()
@@ -35,7 +45,6 @@ public class MenuController : MonoBehaviour
         }
     }
 
-    // Função chamada ao clicar em "New Game"
     public void OnNewGameClicked()
     {
         selectSound.Play();
@@ -47,10 +56,44 @@ public class MenuController : MonoBehaviour
             gameLevels.SetActive(true);
     }
 
-    // Função chamada ao clicar em "Back"
+    public void LoadLevel01()
+    {
+        selectSound.Play();
+        SceneManager.LoadScene("Level_1");
+    }
+
+
+    public void OnLeaderboardClicked()
+    {
+        selectSound.Play();
+
+        if (menuOptions != null)
+            menuOptions.SetActive(false);
+
+        if (gameRanking != null)
+            gameRanking.SetActive(true);
+    }
+
+        public void OnCreditsClicked()
+    {
+        selectSound.Play();
+
+        if (menuOptions != null)
+            menuOptions.SetActive(false);
+
+        if (gameCredits != null)
+            gameCredits.SetActive(true);
+    }
+
     public void OnBackClicked()
     {
         selectSound.Play();
+
+        if (gameCredits != null)
+            gameCredits.SetActive(false);
+
+        if (gameRanking != null)
+            gameRanking.SetActive(false);
 
         if (gameLevels != null)
             gameLevels.SetActive(false);
@@ -59,18 +102,29 @@ public class MenuController : MonoBehaviour
             menuOptions.SetActive(true);
     }
 
+    public void ReturnToMenuFromCredits()
+    {
+        if (gameCredits != null)
+            gameCredits.SetActive(false);
+
+        if (menuOptions != null)
+            menuOptions.SetActive(true);
+
+        selectSound.Play();
+    }
+
+
     public void OnExitClicked()
     {
         selectSound.Play();
         Debug.Log("Saindo do jogo...");
 
-        // Sai do jogo (funciona apenas no build)
         Application.Quit();
 
-        // Se estiver no editor, isso encerra o modo Play (só para testes)
     #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
     #endif
     }
+    
 
 }
