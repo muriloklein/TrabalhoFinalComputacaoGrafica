@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9019423682012547427}
   m_Layer: 0
   m_Name: EnemyProjectile
-  m_TagString: Projectiles
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -178,5 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 773af4d992e552a4c92882eddbd8ed84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyProjetil
+  explosionVFX: {fileID: 4528382126151413453, guid: f9558af0db621d747b212afbfd32a3e5, type: 3}
+  hitSound: {fileID: 8300000, guid: 651df9f4034cc344a923ef9f2029367f, type: 3}
   speed: 5
   lifeTime: 4
