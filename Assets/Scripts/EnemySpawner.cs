@@ -3,25 +3,28 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public int enemyCount = 5;
-    public float spawnAreaWidth = 20f;
-    public float spawnAreaHeight = 10f;
+    public float spawnRate = 2f;
+    private float timer;
 
-    void Start()
+    public Vector2 spawnAreaMin;
+    public Vector2 spawnAreaMax;
+
+    void Update()
     {
-        SpawnEnemies();
+        timer += Time.deltaTime;
+
+        if (timer >= spawnRate)
+        {
+            SpawnEnemy();
+            timer = 0f;
+        }
     }
 
-    void SpawnEnemies()
+    void SpawnEnemy()
     {
-        for (int i = 0; i < enemyCount; i++)
-        {
-            Vector2 pos = new Vector2(
-                Random.Range(-spawnAreaWidth, spawnAreaWidth),
-                Random.Range(-spawnAreaHeight, spawnAreaHeight)
-            );
+        float y = Random.Range(spawnAreaMin.y, spawnAreaMax.y);
+        Vector3 spawnPos = new Vector3(spawnAreaMin.x, y, 0);
 
-            Instantiate(enemyPrefab, pos, Quaternion.identity);
-        }
+        Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
     }
 }
