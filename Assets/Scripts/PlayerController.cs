@@ -35,10 +35,8 @@ public class PlayerController2D : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Movimento linear
         rb.linearVelocity = moveInput * moveSpeed;
 
-        // Opcional: girar a nave na direção do movimento
         if (moveInput.sqrMagnitude > 0.01f)
         {
             float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg - 90f;

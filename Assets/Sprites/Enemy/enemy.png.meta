@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemyteste-removebg-preview_0
+      name: Enemy
       rect:
         serializedVersion: 2
         x: 11
@@ -108,7 +108,7 @@ TextureImporter:
         width: 331
         height: 212
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1d34b7edb21db6043a9aa5777b9a23d2
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      enemyteste-removebg-preview_0: -4376440623627012516
+      Enemy: -4376440623627012516
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

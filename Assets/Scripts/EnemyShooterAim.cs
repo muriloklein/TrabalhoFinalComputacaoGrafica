@@ -11,7 +11,6 @@ public class EnemyShooterAim : MonoBehaviour
 
     void Start()
     {
-        // Encontrar o player pela Tag
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         if (player == null)
