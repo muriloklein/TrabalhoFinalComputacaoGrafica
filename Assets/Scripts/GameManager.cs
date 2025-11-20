@@ -83,6 +83,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void BackToMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MenuScene");
+    }
+
     public float GetTimer() => timer;
     public int GetDestroyed() => enemiesDestroyed;
 }
