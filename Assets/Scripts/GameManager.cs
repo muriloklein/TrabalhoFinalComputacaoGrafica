@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     private int enemiesDestroyed = 0;
     private bool gameEnded = false;
 
+    public int killsRequiredToWin = 5;
+
     void Awake()
     {
         if (Instance == null)
@@ -57,14 +59,20 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
-        Time.timeScale = 0f;
-        gameWinPanel.SetActive(true);
+        if (enemiesDestroyed < killsRequiredToWin)
+        {
+            Debug.Log("Ainda não matou inimigos suficientes!");
+            return;
+        }
 
-        var text = gameWinPanel.transform.Find("GameOverText");
+        Time.timeScale = 0f;
+        gameOverPanel.SetActive(true);
+
+        var text = gameOverPanel.transform.Find("GameOverText");
         if (text != null)
             text.GetComponent<TMPro.TMP_Text>().text = "YOU WIN!";
 
-        var nextButton = gameWinPanel.transform.Find("NextLevelButton");
+        var nextButton = gameOverPanel.transform.Find("NextLevelButton");
         if (nextButton != null)
             nextButton.gameObject.SetActive(true);
 

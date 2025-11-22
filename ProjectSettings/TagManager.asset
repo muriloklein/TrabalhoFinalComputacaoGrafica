@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Projectiles
   - EnemyProjectile
+  - Text
   layers:
   - Default
   - TransparentFX
