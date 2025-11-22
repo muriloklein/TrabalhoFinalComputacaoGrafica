@@ -22,6 +22,8 @@ public class EnemyProjectile : MonoBehaviour
 
     void Update()
     {
+        if (rb == null) return;
+
         if (rb.linearVelocity.sqrMagnitude > 0.01f)
         {
             float angle = Mathf.Atan2(rb.linearVelocity.y, rb.linearVelocity.x) * Mathf.Rad2Deg;
