@@ -1650,7 +1650,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -118.16742, w: -17.407228}
+  m_margin: {x: 0, y: 0, z: -182.69853, w: -17.407228}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4716,7 +4716,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -65, y: -34.738}
+  m_AnchoredPosition: {x: -28, y: 308}
   m_SizeDelta: {x: 589.717, y: 119.477}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1244444138
@@ -4739,7 +4739,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mate pelo menos 5 inimigos para vencer!
+  m_text: Kill at least 5 enemies to win!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5240,11 +5240,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4435033154184495859, guid: 56947303fa397244586ef6f6132d77e5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -79.4
+      value: -83.5
       objectReference: {fileID: 0}
     - target: {fileID: 4435033154184495859, guid: 56947303fa397244586ef6f6132d77e5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 150.3
+      value: 144
       objectReference: {fileID: 0}
     - target: {fileID: 4435033154184495859, guid: 56947303fa397244586ef6f6132d77e5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6555,8 +6555,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 909, y: 442.66}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 846, y: 492}
+  m_SizeDelta: {x: 239.92, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1700785050
 MonoBehaviour:
@@ -6658,7 +6658,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -31.666466, y: 0, z: -35.888817, w: 0}
+  m_margin: {x: -31.666466, y: 0, z: 0.35456085, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
