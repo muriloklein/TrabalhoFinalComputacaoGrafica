@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 5733701615120851337}
   - component: {fileID: -6320150596091545910}
   - component: {fileID: -7203066656777212577}
+  - component: {fileID: 4728243883529086813}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -228,3 +229,16 @@ MonoBehaviour:
   enemyBulletPrefab: {fileID: 1824363675493666857, guid: 5c3dca732514ab542ba078b2c5b766df, type: 3}
   shootPoint: {fileID: 3659875907458437239}
   fireRate: 1.5
+--- !u!114 &4728243883529086813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6366251979141332453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9474d695b7c5a3c4db5a4c336eef376d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  life: 1

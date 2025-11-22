@@ -52,9 +52,6 @@ public class GameManager : MonoBehaviour
     public void AddEnemyDestroyed()
     {
         enemiesDestroyed++;
-
-        if (enemiesDestroyed >= enemiesToDestroy)
-            WinGame();
     }
 
     public void WinGame()
@@ -66,13 +63,13 @@ public class GameManager : MonoBehaviour
         }
 
         Time.timeScale = 0f;
-        gameOverPanel.SetActive(true);
+        gameWinPanel.SetActive(true);
 
-        var text = gameOverPanel.transform.Find("GameOverText");
+        var text = gameWinPanel.transform.Find("GameWinText");
         if (text != null)
             text.GetComponent<TMPro.TMP_Text>().text = "YOU WIN!";
 
-        var nextButton = gameOverPanel.transform.Find("NextLevelButton");
+        var nextButton = gameWinPanel.transform.Find("NextLevelButton");
         if (nextButton != null)
             nextButton.gameObject.SetActive(true);
 
