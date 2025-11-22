@@ -181,4 +181,4 @@ MonoBehaviour:
   explosionVFX: {fileID: 4528382126151413453, guid: f9558af0db621d747b212afbfd32a3e5, type: 3}
   hitSound: {fileID: 8300000, guid: 651df9f4034cc344a923ef9f2029367f, type: 3}
   speed: 5
-  lifeTime: 4
+  lifeTime: 100

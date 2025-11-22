@@ -16,19 +16,27 @@ public class Projectile : MonoBehaviour
         transform.Translate(Vector3.up * speed * Time.deltaTime);
     }
 
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Destruir inimigo
         if (other.CompareTag("Enemy"))
         {
-            GameManager.Instance.AddEnemyDestroyed();
             SpawnExplosion();
-            Destroy(other.gameObject);
+
+            EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
+
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(1);
+            }
+            else
+            {
+                Destroy(other.gameObject);
+            }
+
+            GameManager.Instance.AddEnemyDestroyed();
             Destroy(gameObject);
         }
 
-        // Destruir asteroide
         if (other.CompareTag("Asteroid"))
         {
             SpawnExplosion();

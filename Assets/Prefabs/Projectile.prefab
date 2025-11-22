@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d132fa6b57d4a9c4da7a6b081f81cf69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile2D
-  lifeTime: 6
+  lifeTime: 100
   speed: 10
   explosionPrefab: {fileID: 7309821751498476324, guid: 7286b99692ba15e408a4052c3c7852e0, type: 3}
 --- !u!50 &-8451348831554070571

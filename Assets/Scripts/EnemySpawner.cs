@@ -2,29 +2,31 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;
-    public float spawnRate = 2f;
-    private float timer;
+    public float areaX = 5f;
+    public float areaY = 3f;
 
-    public Vector2 spawnAreaMin;
-    public Vector2 spawnAreaMax;
-
-    void Update()
+    public GameObject SpawnEnemy(GameObject enemyPrefab)
     {
-        timer += Time.deltaTime;
+        Vector3 basePos = transform.position;
 
-        if (timer >= spawnRate)
-        {
-            SpawnEnemy();
-            timer = 0f;
-        }
+        float randomX = Random.Range(-areaX / 2f, areaX / 2f);
+        float randomY = Random.Range(-areaY / 2f, areaY / 2f);
+
+        Vector3 spawnPos = new Vector3(
+            basePos.x + randomX,
+            basePos.y + randomY,
+            basePos.z
+        );
+
+        return Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
     }
 
-    void SpawnEnemy()
+    void OnDrawGizmos()
     {
-        float y = Random.Range(spawnAreaMin.y, spawnAreaMax.y);
-        Vector3 spawnPos = new Vector3(spawnAreaMin.x, y, 0);
+        Gizmos.color = new Color(1, 0, 0, 0.25f);
+        Gizmos.DrawCube(transform.position, new Vector3(areaX, areaY, 0.1f));
 
-        Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, new Vector3(areaX, areaY, 0.1f));
     }
 }
