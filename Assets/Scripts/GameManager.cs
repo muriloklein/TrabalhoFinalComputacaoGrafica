@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     [Header("UI Panels")]
     public GameObject gameOverPanel;
-    public GameObject winPanel;
+    public GameObject gameWinPanel;
 
     private float timer;
     private int enemiesDestroyed = 0;
@@ -55,15 +55,20 @@ public class GameManager : MonoBehaviour
             WinGame();
     }
 
-    void WinGame()
+    public void WinGame()
     {
-        gameEnded = true;
-        Debug.Log("YOU WIN!");
-
-        if (winPanel != null)
-            winPanel.SetActive(true);
-
         Time.timeScale = 0f;
+        gameWinPanel.SetActive(true);
+
+        var text = gameWinPanel.transform.Find("GameOverText");
+        if (text != null)
+            text.GetComponent<TMPro.TMP_Text>().text = "YOU WIN!";
+
+        var nextButton = gameWinPanel.transform.Find("NextLevelButton");
+        if (nextButton != null)
+            nextButton.gameObject.SetActive(true);
+
+        Debug.Log("YOU WIN!");
     }
 
     public void GameOver()
@@ -88,6 +93,23 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("MenuScene");
     }
+
+    public void LoadNextLevel()
+    {
+        Time.timeScale = 1f;
+
+        int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        if (nextIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextIndex);
+        }
+        else
+        {
+            Debug.Log("Não há próxima fase configurada!");
+        }
+    }
+
 
     public float GetTimer() => timer;
     public int GetDestroyed() => enemiesDestroyed;
