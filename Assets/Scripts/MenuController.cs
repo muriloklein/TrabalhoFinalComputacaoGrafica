@@ -68,6 +68,12 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene("Level_2");
     }
 
+    public void LoadLevel03()
+    {
+        selectSound.Play();
+        SceneManager.LoadScene("Level_3");
+    }
+
     public void OnLeaderboardClicked()
     {
         selectSound.Play();
