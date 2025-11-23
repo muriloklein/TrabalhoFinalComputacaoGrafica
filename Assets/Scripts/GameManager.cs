@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public static int lastScore;
 
     [Header("Gameplay Settings")]
     public float timeLimit = 60f;
@@ -73,6 +74,9 @@ public class GameManager : MonoBehaviour
         if (nextButton != null)
             nextButton.gameObject.SetActive(true);
 
+        lastScore = enemiesDestroyed;
+        SceneManager.LoadScene("Menu");
+
         Debug.Log("YOU WIN!");
     }
 
@@ -83,6 +87,9 @@ public class GameManager : MonoBehaviour
 
         if (gameOverPanel != null)
             gameOverPanel.SetActive(true);
+
+        lastScore = enemiesDestroyed;
+        SceneManager.LoadScene("Menu");
 
         Time.timeScale = 0f;
     }
@@ -114,7 +121,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("Não há próxima fase configurada!");
         }
     }
-
 
     public float GetTimer() => timer;
     public int GetDestroyed() => enemiesDestroyed;
