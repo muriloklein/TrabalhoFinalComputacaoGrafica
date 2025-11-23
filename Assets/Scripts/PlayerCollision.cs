@@ -15,6 +15,12 @@ public class PlayerCollision : MonoBehaviour
             died = true;
 
             Instantiate(explosionVFX, transform.position, Quaternion.identity);
+            
+            if (CameraShake.Instance != null)
+                StartCoroutine(CameraShake.Instance.Shake(0.4f, 0.9f));
+
+            if (FindObjectOfType<CameraController>() != null)
+                FindObjectOfType<CameraController>().StopFollowing();
 
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
