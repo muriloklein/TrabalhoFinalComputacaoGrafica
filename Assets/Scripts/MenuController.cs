@@ -1,15 +1,22 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MenuController : MonoBehaviour
 {
+    [Header("Menu Panels")]
     public GameObject menuOptions;
     public GameObject introScreen;
     public GameObject gameLevels;
     public GameObject gameRanking;
     public GameObject gameCredits;
+
+    [Header("Audio")]
     public AudioSource selectSound;
+
+    [Header("Navigation")]
+    public GameObject defaultMenuButton;
 
     private bool hasStarted = false;
 
@@ -28,7 +35,6 @@ public class MenuController : MonoBehaviour
 
         if (gameCredits != null)
             gameCredits.SetActive(false);
-
     }
 
     void Update()
@@ -37,105 +43,106 @@ public class MenuController : MonoBehaviour
         {
             selectSound.Play();
 
-            if (introScreen != null)
-                introScreen.SetActive(false);
+            introScreen?.SetActive(false);
 
             menuOptions.SetActive(true);
+            SelectDefaultMenuButton();
+
             hasStarted = true;
         }
     }
 
     public void OnNewGameClicked()
     {
-        selectSound.Play();
+        PlayClick();
+        menuOptions.SetActive(false);
+        gameLevels.SetActive(true);
+        DeselectUI();
+    }
 
-        if (menuOptions != null)
-            menuOptions.SetActive(false);
+    public void OnLeaderboardClicked()
+    {
+        PlayClick();
+        menuOptions.SetActive(false);
+        gameRanking.SetActive(true);
+        DeselectUI();
+    }
 
-        if (gameLevels != null)
-            gameLevels.SetActive(true);
+    public void OnCreditsClicked()
+    {
+        PlayClick();
+        menuOptions.SetActive(false);
+        gameCredits.SetActive(true);
+        DeselectUI();
+    }
+
+    public void OnBackClicked()
+    {
+        PlayClick();
+
+        gameCredits?.SetActive(false);
+        gameRanking?.SetActive(false);
+        gameLevels?.SetActive(false);
+
+        menuOptions.SetActive(true);
+        SelectDefaultMenuButton();
+    }
+
+    public void ReturnToMenuFromCredits()
+    {
+        gameCredits?.SetActive(false);
+        menuOptions.SetActive(true);
+
+        PlayClick();
+        SelectDefaultMenuButton();
     }
 
     public void LoadLevel01()
     {
-        selectSound.Play();
+        PlayClick();
         SceneManager.LoadScene("Level_1");
     }
 
     public void LoadLevel02()
     {
-        selectSound.Play();
+        PlayClick();
         SceneManager.LoadScene("Level_2");
     }
 
     public void LoadLevel03()
     {
-        selectSound.Play();
+        PlayClick();
         SceneManager.LoadScene("Level_3");
     }
 
-    public void OnLeaderboardClicked()
-    {
-        selectSound.Play();
-
-        if (menuOptions != null)
-            menuOptions.SetActive(false);
-
-        if (gameRanking != null)
-            gameRanking.SetActive(true);
-    }
-
-        public void OnCreditsClicked()
-    {
-        selectSound.Play();
-
-        if (menuOptions != null)
-            menuOptions.SetActive(false);
-
-        if (gameCredits != null)
-            gameCredits.SetActive(true);
-    }
-
-    public void OnBackClicked()
-    {
-        selectSound.Play();
-
-        if (gameCredits != null)
-            gameCredits.SetActive(false);
-
-        if (gameRanking != null)
-            gameRanking.SetActive(false);
-
-        if (gameLevels != null)
-            gameLevels.SetActive(false);
-
-        if (menuOptions != null)
-            menuOptions.SetActive(true);
-    }
-
-    public void ReturnToMenuFromCredits()
-    {
-        if (gameCredits != null)
-            gameCredits.SetActive(false);
-
-        if (menuOptions != null)
-            menuOptions.SetActive(true);
-
-        selectSound.Play();
-    }
-
-
     public void OnExitClicked()
     {
-        selectSound.Play();
+        PlayClick();
         Debug.Log("Saindo do jogo...");
-
         Application.Quit();
 
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-    #endif
+#endif
     }
-    
 
+    void PlayClick()
+    {
+        if (selectSound != null)
+            selectSound.Play();
+    }
+
+    void SelectDefaultMenuButton()
+    {
+        if (defaultMenuButton == null)
+            return;
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(defaultMenuButton);
+    }
+
+    void DeselectUI()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+    }
 }

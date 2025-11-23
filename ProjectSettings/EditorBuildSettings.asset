@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_3.unity
     guid: 7f2eeb47b168da14c9f9ebacfce8c88b
+  - enabled: 1
+    path: Assets/Scenes/ScoreScene.unity
+    guid: 57942d9c923abf64983c41320ba4adce
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

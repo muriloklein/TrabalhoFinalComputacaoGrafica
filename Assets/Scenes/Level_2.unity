@@ -7791,6 +7791,7 @@ MonoBehaviour:
   enemiesToDestroy: 10
   gameOverPanel: {fileID: 1698234621}
   gameWinPanel: {fileID: 56493668}
+  currentLevelNumber: 2
   killsRequiredToWin: 10
 --- !u!4 &1742742716
 Transform:

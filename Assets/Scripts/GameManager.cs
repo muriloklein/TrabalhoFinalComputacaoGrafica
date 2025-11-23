@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject gameWinPanel;
 
+    [Header("Level Info")]
+    public int currentLevelNumber = 1;
+
     private float timer;
     private int enemiesDestroyed = 0;
     private bool gameEnded = false;
@@ -62,6 +65,13 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        gameEnded = true;
+
+        if (PlayerProgressManager.Instance != null)
+        {
+            PlayerProgressManager.Instance.SaveLevelKills(currentLevelNumber, enemiesDestroyed);
+        }
+
         Time.timeScale = 0f;
         gameWinPanel.SetActive(true);
 
@@ -73,7 +83,7 @@ public class GameManager : MonoBehaviour
         if (nextButton != null)
             nextButton.gameObject.SetActive(true);
 
-        Debug.Log("YOU WIN!");
+        Debug.Log($"YOU WIN! Kills: {enemiesDestroyed}");
     }
 
     public void GameOver()
@@ -114,7 +124,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("Não há próxima fase configurada!");
         }
     }
-
 
     public float GetTimer() => timer;
     public int GetDestroyed() => enemiesDestroyed;

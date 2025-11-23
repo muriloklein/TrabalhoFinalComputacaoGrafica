@@ -3472,7 +3472,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Next Level
+  m_text: 'Save Score
 
 '
   m_isRightToLeft: 0
@@ -6877,8 +6877,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.4, y: -197}
-  m_SizeDelta: {x: 272.87, y: 51.4157}
+  m_AnchoredPosition: {x: 7.5, y: -197}
+  m_SizeDelta: {x: 296.0503, y: 51.4157}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1441182839
 MonoBehaviour:
@@ -7831,6 +7831,7 @@ MonoBehaviour:
   enemiesToDestroy: 15
   gameOverPanel: {fileID: 1698234621}
   gameWinPanel: {fileID: 56493668}
+  currentLevelNumber: 3
   killsRequiredToWin: 15
 --- !u!4 &1742742716
 Transform:
