@@ -2,41 +2,41 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float moveSpeed = 2.5f;
-    public float stopDistance = 1.5f;
+    public float moveSpeed = 2f;
+    public float steerStrength = 4f;
+    public float stopDistance = 1.3f;
 
     private Transform player;
+    private Vector2 velocity;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
 
         if (player == null)
-            Debug.LogError("[EnemyMovement] Player não encontrado! Adicione a tag 'Player' no objeto do player.");
+            Debug.LogError("Player não encontrado!");
     }
 
     void Update()
     {
         if (player == null) return;
 
-        FollowPlayer();
-    }
-
-    void FollowPlayer()
-    {
-        float distance = Vector2.Distance(transform.position, player.position);
+        Vector2 toPlayer = (player.position - transform.position);
+        float distance = toPlayer.magnitude;
 
         if (distance > stopDistance)
         {
-            Vector2 direction = (player.position - transform.position).normalized;
+            Vector2 desired = toPlayer.normalized * moveSpeed;
+            velocity = Vector2.Lerp(velocity, desired, steerStrength * Time.deltaTime);
 
-            transform.position += (Vector3)(direction * moveSpeed * Time.deltaTime);
+            transform.position += (Vector3)(velocity * Time.deltaTime);
 
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-            float spriteOffset = -90f;
-
-            transform.rotation = Quaternion.Euler(0, 0, angle + spriteOffset);
+            float angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
+        }
+        else
+        {
+            velocity = Vector2.zero;
         }
     }
 }

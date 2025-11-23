@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: -6320150596091545910}
   - component: {fileID: -7203066656777212577}
   - component: {fileID: 4728243883529086813}
+  - component: {fileID: -2847730413801467976}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -213,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   moveSpeed: 2.5
+  steerStrength: 4
   stopDistance: 1.5
 --- !u!114 &-7203066656777212577
 MonoBehaviour:
@@ -242,3 +244,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   life: 1
+--- !u!114 &-2847730413801467976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6366251979141332453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc3898d135c9864c85ddef3230d7ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCollision
+  explosionVFX: {fileID: 7309821751498476324, guid: 7286b99692ba15e408a4052c3c7852e0, type: 3}
