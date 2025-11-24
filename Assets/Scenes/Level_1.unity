@@ -7213,7 +7213,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -1.1327362, y: -8.4974575, z: 0.81971365, w: -4.634945}
+  m_margin: {x: -27.665085, y: -8.4974575, z: 0.81971365, w: -4.634945}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -7370,6 +7370,7 @@ MonoBehaviour:
   enemiesToDestroy: 15
   gameOverPanel: {fileID: 2116636034}
   gameWinPanel: {fileID: 998175613}
+  currentLevelNumber: 1
   killsRequiredToWin: 5
 --- !u!4 &1742742716
 Transform:
