@@ -39,11 +39,8 @@ Controle uma nave, desvie de asteroides, destrua inimigos, avance até a linha f
 ## 👨‍💻 Autores
 
 **Guilherme Silveira Machado**  
-Ciência da Computação – UPF
 **Murilo Klein**  
-Ciência da Computação – UPF
 **Samuel Vitor Zibetti**  
-Ciência da Computação – UPF
 
 ## 📄 Licença
 
