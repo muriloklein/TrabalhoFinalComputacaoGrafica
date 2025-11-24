@@ -17,6 +17,9 @@ public class EnemyProjectile : MonoBehaviour
 
     void Start()
     {
+        if (rb != null)
+            rb.linearVelocity = rb.linearVelocity * speed;
+
         Destroy(gameObject, lifeTime);
     }
 

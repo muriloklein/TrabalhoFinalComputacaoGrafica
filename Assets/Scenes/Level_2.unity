@@ -7678,7 +7678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnManager
   enemyPrefab: {fileID: 6366251979141332453, guid: 937b6cf41e60d6e4696888c219ca6fe9, type: 3}
-  maxEnemies: 7
+  maxEnemies: 10
   spawnInterval: 1.5
   player: {fileID: 291293691}
 --- !u!4 &1726925275
@@ -7787,7 +7787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3008e0624c2e314e94d726347ca1b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  timeLimit: 30
+  timeLimit: 45
   enemiesToDestroy: 10
   gameOverPanel: {fileID: 1698234621}
   gameWinPanel: {fileID: 56493668}
