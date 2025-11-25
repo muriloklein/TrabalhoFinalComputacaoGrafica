@@ -6,7 +6,7 @@ Controle uma nave, desvie de asteroides, destrua inimigos, avance até a linha f
 ## 🎮 Funcionalidades
 
 - Movimentação com física + turbo (combustível limitado)
-- Inimigos com IA: perseguição, flanqueamento, ondas e rajadas de tiro
+- Inimigos com perseguição e rajadas de tiro
 - Sistema de danos, explosões, shake de câmera e efeitos sonoros
 - Asteroides com colisão precisa (PolygonCollider2D)
 - Condição de vitória (precisa matar 5 inimigos antes da linha final)
@@ -15,7 +15,7 @@ Controle uma nave, desvie de asteroides, destrua inimigos, avance até a linha f
 ## 📦 Download
 
 **Executável (.exe):**  
-➡ [Exe](https://drive.google.com/file/d/1Gf8E-5rdL9Z0aE6poefaB13O1GB6yP11/view?usp=sharing)
+➡ [Exe](https://drive.google.com/drive/u/1/folders/0AD648yuPoojGUk9PVA)
 
 ## 🎥 Demonstração
 
